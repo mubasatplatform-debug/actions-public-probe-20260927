@@ -1,0 +1,18 @@
+name: Public runner probe
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/probe.yml']
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Confirm runner execution
+        shell: bash
+        run: printf '%s\n' 'PUBLIC_RUNNER_PROBE_OK'
